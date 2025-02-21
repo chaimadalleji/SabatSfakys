@@ -1,0 +1,7 @@
+{
+  "name": "SabatSfakys",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
