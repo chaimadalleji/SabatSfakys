@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Catégories</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h2>Catégories de Produits</h2>
+
+  <!-- Mettre en avant la catégorie spéciale -->
+  <ion-card button (click)="openCategory(specialCategory.name)" class="special-category">
+    <ion-card-header>
+      <ion-icon [name]="specialCategory.icon" size="large"></ion-icon>
+      <ion-card-title>{{ specialCategory.name }}</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <!-- Catégories avec menu déroulant -->
+  <ion-accordion-group>
+    <ion-accordion *ngFor="let category of categories" [value]="category.name">
+      <ion-item slot="header">
+        <ion-icon [name]="category.icon" slot="start"></ion-icon>
+        <ion-label>{{ category.name }}</ion-label>
+      </ion-item>
+      <div slot="content">
+        <ion-list>
+          <ion-item button *ngFor="let subcategory of category.subcategories" 
+                    (click)="openCategory(category.name, subcategory)">
+            {{ subcategory }}
+          </ion-item>
+        </ion-list>
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
+</ion-content>

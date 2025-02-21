@@ -1,3 +1,32 @@
-<ion-app>
-  <ion-router-outlet></ion-router-outlet>
-</ion-app>
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <ion-item routerLink="/home">Accueil</ion-item>
+      <ion-item routerLink="/products">Produits</ion-item>
+      <ion-item routerLink="/favorites">Favoris</ion-item>
+
+      <!-- Dropdown pour les catégories -->
+      <ion-accordion-group>
+        <ion-accordion value="categories">
+          <ion-item slot="header">
+            <ion-label>Catégories</ion-label>
+          </ion-item>
+          <div slot="content">
+            <ion-item routerLink="/categories/shoes">Chaussures</ion-item>
+            <ion-item routerLink="/categories/bags">Sacs</ion-item>
+            <ion-item routerLink="/categories/accessories">Accessoires</ion-item>
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
+
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-router-outlet id="main-content"></ion-router-outlet>
