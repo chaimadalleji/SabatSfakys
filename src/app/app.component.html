@@ -11,16 +11,58 @@
       <ion-item routerLink="/products">Produits</ion-item>
       <ion-item routerLink="/favorites">Favoris</ion-item>
 
-      <!-- Dropdown pour les catégories -->
+      <!-- Dropdown pour Chaussures à Besoins Spécifiques -->
       <ion-accordion-group>
-        <ion-accordion value="categories">
+        <ion-accordion value="special-needs">
           <ion-item slot="header">
-            <ion-label>Catégories</ion-label>
+            <ion-label>👟 Chaussures pour Besoins Spécifiques</ion-label>
           </ion-item>
           <div slot="content">
-            <ion-item routerLink="/categories/shoes">Chaussures</ion-item>
-            <ion-item routerLink="/categories/bags">Sacs</ion-item>
-            <ion-item routerLink="/categories/accessories">Accessoires</ion-item>
+            <ion-item routerLink="/categories/special-needs/homme">Homme</ion-item>
+            <ion-item routerLink="/categories/special-needs/femme">Femme</ion-item>
+            <ion-item routerLink="/categories/special-needs/enfant">Enfant</ion-item>
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
+
+      <!-- Dropdown pour Chaussures -->
+      <ion-accordion-group>
+        <ion-accordion value="shoes">
+          <ion-item slot="header">
+            <ion-label>👞 Chaussures</ion-label>
+          </ion-item>
+          <div slot="content">
+            <ion-item routerLink="/categories/shoes/homme">Homme</ion-item>
+            <ion-item routerLink="/categories/shoes/femme">Femme</ion-item>
+            <ion-item routerLink="/categories/shoes/enfant">Enfant</ion-item>
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
+
+      <!-- Dropdown pour Sacs -->
+      <ion-accordion-group>
+        <ion-accordion value="bags">
+          <ion-item slot="header">
+            <ion-label>👜 Sacs</ion-label>
+          </ion-item>
+          <div slot="content">
+            <ion-item routerLink="/categories/bags/homme">Homme</ion-item>
+            <ion-item routerLink="/categories/bags/femme">Femme</ion-item>
+            <ion-item routerLink="/categories/bags/enfant">Enfant</ion-item>
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
+
+      <!-- Dropdown pour Accessoires -->
+      <ion-accordion-group>
+        <ion-accordion value="accessories">
+          <ion-item slot="header">
+            <ion-label>🕶️ Accessoires</ion-label>
+          </ion-item>
+          <div slot="content">
+            <ion-item routerLink="/categories/accessories/homme">Homme</ion-item>
+            <ion-item routerLink="/categories/accessories/femme">Femme</ion-item>
+            <ion-item routerLink="/categories/accessories/enfant">Enfant</ion-item>
           </div>
         </ion-accordion>
       </ion-accordion-group>
@@ -30,3 +72,45 @@
 </ion-menu>
 
 <ion-router-outlet id="main-content"></ion-router-outlet>
+
+<ion-header>
+  <ion-toolbar>
+
+    <!-- Bouton Menu -->
+    <ion-buttons slot="start">
+      <ion-menu-button>
+        <i class="fas fa-bars"></i> <!-- Icône Menu Bootstrap -->
+      </ion-menu-button>
+    </ion-buttons>
+
+    <!-- Logo et lien vers SabatSfakys -->
+    <ion-buttons slot="start">
+      <a href="https://www.sabat-sfakys.tn/" target="_blank">
+        <img src="assets/logo.png" alt="SabatSfakys" class="logo">
+      </a>
+    </ion-buttons>
+
+    <!-- Barre de recherche -->
+    <ion-searchbar placeholder="Rechercher..." (ionInput)="search($event)"></ion-searchbar>
+
+    <!-- Icônes Bootstrap pour les boutons -->
+    <ion-buttons slot="end">
+      <ion-button routerLink="/favorites">
+        <i class="fas fa-heart"></i> <!-- Icône Favoris -->
+      </ion-button>
+
+      <ion-button routerLink="/cart">
+        <i class="fas fa-shopping-cart"></i> <!-- Icône Panier -->
+      </ion-button>
+
+      <ion-button routerLink="/orders">
+        <i class="fas fa-receipt"></i> <!-- Icône Commandes -->
+      </ion-button>
+
+      <ion-button routerLink="/profile">
+        <i class="fas fa-user-circle"></i> <!-- Icône Profil -->
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>

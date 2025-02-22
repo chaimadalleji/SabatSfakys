@@ -8,7 +8,7 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [IonicModule, CommonModule, RouterModule], // Ajout de IonicModule
   templateUrl: 'app.component.html',
-  styleUrls: ['app.component.scss'],
+  styleUrls: ['./app.component.scss'] 
 })
 export class AppComponent {
   public appPages = [
@@ -69,4 +69,8 @@ export class AppComponent {
     // Plus tard, on pourra utiliser Angular Router pour rediriger l'utilisateur
     // this.router.navigate(['/products', { category: category, subcategory: subcategory }]);
   }
+  search(event: any) {
+    const query = event.target.value.toLowerCase();
+    console.log("Recherche :", query);
+}
 }
