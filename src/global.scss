@@ -62,9 +62,44 @@ ion-searchbar {
   padding: 5px 0;
 }
 
+/* ===================================== */
+/* ✅ CENTRER LES FORMULAIRES (LOGIN & REGISTER) */
+/* ===================================== */
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Prend toute la hauteur de l'écran */
+  text-align: center;
+}
+
+/* ✅ Styliser les champs */
+.auth-input {
+  width: 90%;
+  max-width: 400px;
+  margin-bottom: 15px;
+}
+
+/* ===================================== */
+/* ✅ Fixer le footer en bas */
+/* ===================================== */
+.footer-fixed {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: white;
+  box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+}
+
 /* ✅ Icônes du footer */
 .icon-footer {
-  color: #63a50a !important; /* ✅ Icônes verts */
+  color: #63a50a !important;
   font-size: 24px !important;
   display: flex !important;
   justify-content: center;
@@ -82,15 +117,4 @@ ion-tab-button ion-label {
 /* ✅ Empêcher le contenu d’être caché par le footer */
 ion-content {
   padding-bottom: 60px !important;
-}
-
-/* ✅ Amélioration de l'affichage sur mobile */
-@media (max-width: 768px) {
-  ion-tab-bar {
-    font-size: 12px !important;
-  }
-
-  .icon-footer {
-    font-size: 20px !important;
-  }
 }

@@ -1,4 +1,4 @@
-<!-- ✅ MENU - S'affiche uniquement si l'utilisateur est authentifié -->
+<!-- ✅ MENU - S'affiche uniquement si l'utilisateur est connecté -->
 <ion-menu *ngIf="isUserAuthenticated()" contentId="main-content">
   <ion-header>
     <ion-toolbar>
@@ -22,7 +22,7 @@
 
 <ion-router-outlet id="main-content"></ion-router-outlet>
 
-<!-- ✅ BARRE DE RECHERCHE - S'affiche uniquement si l'utilisateur est authentifié -->
+<!-- ✅ BARRE DE RECHERCHE - S'affiche uniquement si l'utilisateur est connecté -->
 <ion-header *ngIf="isUserAuthenticated()">
   <ion-toolbar>
     <ion-buttons slot="start">
@@ -41,7 +41,7 @@
   </ion-toolbar>
 </ion-header>
 
-<!-- ✅ FOOTER - S'affiche uniquement si l'utilisateur est authentifié -->
+<!-- ✅ FOOTER - S'affiche uniquement si l'utilisateur est connecté -->
 <ion-footer *ngIf="isUserAuthenticated()" class="footer-fixed">
   <ion-toolbar>
     <ion-tab-bar slot="bottom">

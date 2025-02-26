@@ -30,9 +30,15 @@ export class AppComponent {
     this.router.navigate(['/login']);
   }
 
-  // ✅ Vérifie si l'utilisateur est connecté et NE SE TROUVE PAS sur Login/Register/Welcome
+  // ✅ Vérifie si l'utilisateur est connecté et ne se trouve PAS sur login/register/welcome
   isUserAuthenticated(): boolean {
-    return this.authService.isAuthenticated() && !['/login', '/register', '/welcome'].includes(this.router.url);
+    return this.authService.isAuthenticated() && 
+           !['/login', '/register', '/welcome'].includes(this.router.url);
+  }
+
+  // ✅ Vérifie si l'utilisateur est sur une page publique
+  isPublicPage(): boolean {
+    return ['/login', '/register', '/welcome'].includes(this.router.url);
   }
 
   search(event: any) {
