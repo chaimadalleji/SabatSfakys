@@ -19,48 +19,78 @@
 @import "@ionic/angular/css/flex-utils.css";
 
 /* ===================================== */
-/* ✅ STYLES DU HEADER ET DE LA BARRE DE NAVIGATION */
+/* ✅ STYLES DU HEADER ET DE LA BARRE DE RECHERCHE */
 /* ===================================== */
 
-/* ✅ Assurer que les icônes sont bien visibles */
-ion-button i {
-  font-size: 22px !important;
-  color: black !important;
-}
-
-/* ✅ Correction spécifique des boutons */
-ion-buttons i {
-  font-size: 22px !important;
-  color: black !important;
-}
-
-/* ✅ Style du bouton de menu */
-ion-menu-button i {
-  font-size: 24px !important;
-  color: black !important;
-}
-
-/* ✅ Style du header */
+/* ✅ Barre du haut */
 ion-toolbar {
   background-color: white !important;
   border-bottom: 2px solid #63a50a !important;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* ✅ Barre de recherche */
+/* ✅ Style de la barre de recherche */
 ion-searchbar {
   --color: #63a50a !important;
   --placeholder-color: #63a50a !important;
-  color: #63a50a !important;
+  --background: #f9f9f9 !important;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* ✅ Logo bien positionné */
+/* ✅ Centrer le logo */
 .logo {
   height: 40px;
-  margin-left: 10px;
+  width: auto;
+  display: block;
+  margin: 0 auto;
 }
 
-/* ✅ Correction si le logo disparaît */
-ion-buttons a img {
-  max-height: 40px;
+/* ===================================== */
+/* ✅ FIXER LE FOOTER EN BAS */
+/* ===================================== */
+.footer-fixed {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: white;
+  box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Assure que le footer est bien visible */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+}
+
+/* ✅ Icônes du footer */
+.icon-footer {
+  color: #63a50a !important; /* ✅ Icônes verts */
+  font-size: 24px !important;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+/* ✅ Texte sous les icônes */
+ion-tab-button ion-label {
+  color: #63a50a !important;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* ✅ Empêcher le contenu d’être caché par le footer */
+ion-content {
+  padding-bottom: 60px !important;
+}
+
+/* ✅ Amélioration de l'affichage sur mobile */
+@media (max-width: 768px) {
+  ion-tab-bar {
+    font-size: 12px !important;
+  }
+
+  .icon-footer {
+    font-size: 20px !important;
+  }
 }

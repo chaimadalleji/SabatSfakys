@@ -1,37 +1,24 @@
 import { Routes } from '@angular/router';
+import { AuthGuard } from './services/auth.guard';
 
 export const routes: Routes = [
-  {
-    path: 'home',
-    loadComponent: () => import('./home/home.page').then((m) => m.HomePage),
+  { path: 'welcome', loadComponent: () => import('./welcome/welcome.page').then(m => m.WelcomePage) },
+  { path: 'login', loadComponent: () => import('./login/login.page').then(m => m.LoginPage) },
+  { path: 'register', loadComponent: () => import('./register/register.page').then(m => m.RegisterPage) },
+
+  // ✅ Espace Client
+  { 
+    path: 'home-client', 
+    loadComponent: () => import('./home/home.page').then(m => m.HomePage), 
+    canActivate: [AuthGuard]
   },
-  {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full',
+
+  // ✅ Espace Vendeur
+  { 
+    path: 'home-vendeur', 
+    loadComponent: () => import('./home-vendeur/home-vendeur.page').then(m => m.HomeVendeurPage), 
+    canActivate: [AuthGuard]
   },
-  {
-    path: 'products',
-    loadComponent: () => import('./products/products.page').then( m => m.ProductsPage)
-  },
-  {
-    path: 'favorites',
-    loadComponent: () => import('./favorites/favorites.page').then( m => m.FavoritesPage)
-  },
-  {
-    path: 'categories',
-    loadComponent: () => import('./categories/categories.page').then( m => m.CategoriesPage)
-  },
-  {
-    path: 'cart',
-    loadComponent: () => import('./cart/cart.page').then( m => m.CartPage)
-  },
-  {
-    path: 'orders',
-    loadComponent: () => import('./orders/orders.page').then( m => m.OrdersPage)
-  },
-  {
-    path: 'profile',
-    loadComponent: () => import('./profile/profile.page').then( m => m.ProfilePage)
-  },
+
+  { path: '', redirectTo: 'welcome', pathMatch: 'full' } // ✅ Rediriger vers la page d'accueil au démarrage
 ];

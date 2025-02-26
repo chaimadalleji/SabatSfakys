@@ -1,0 +1,32 @@
+<ion-content class="ion-padding register-page">
+  <h2>Inscription - {{ selectedRole === 'client' ? 'Client' : 'Vendeur' }}</h2>
+
+  <ion-item>
+    <ion-label position="floating">Email</ion-label>
+    <ion-input type="email"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Mot de passe</ion-label>
+    <ion-input type="password"></ion-input>
+  </ion-item>
+
+  <!-- 🔥 Champs supplémentaires pour les vendeurs -->
+  <ng-container *ngIf="selectedRole === 'vendeur'">
+    <ion-item>
+      <ion-label position="floating">Nom du magasin</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Numéro de TVA</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+  </ng-container>
+
+  <ion-button expand="full" (click)="register()">S'inscrire</ion-button>
+
+  <p *ngIf="selectedRole === 'vendeur'">
+    🚀 Votre compte est en cours de validation par l'admin.
+  </p>
+</ion-content>

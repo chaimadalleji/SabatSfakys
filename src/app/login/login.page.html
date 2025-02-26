@@ -1,0 +1,21 @@
+<ion-content class="ion-padding login-page">
+  <h2>Connexion</h2>
+
+  <ion-item>
+    <ion-label position="floating">Email</ion-label>
+    <ion-input type="email" [(ngModel)]="email"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Mot de passe</ion-label>
+    <ion-input type="password" [(ngModel)]="password"></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" (click)="login()">Se connecter</ion-button>
+
+  <p>Pas encore de compte ?  
+    <a [routerLink]="['/register']" [queryParams]="{ role: selectedRole }">
+      Inscrivez-vous ici
+    </a>
+  </p>
+</ion-content>

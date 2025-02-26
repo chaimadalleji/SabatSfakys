@@ -20,4 +20,14 @@ ion-toolbar {
     height: 40px;
     margin-left: 10px;
   }
+  .footer-fixed {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000; /* S'assure que le footer est toujours visible */
+  }
+  
+  ion-content {
+    padding-bottom: 60px; /* Ajoute un espace en bas pour éviter que le contenu soit caché par le footer */
+  }
   
