@@ -1,5 +1,5 @@
-<!-- ✅ MENU - S'affiche uniquement si l'utilisateur est connecté -->
-<ion-menu *ngIf="isUserAuthenticated()" contentId="main-content">
+<!-- ✅ MENU : S'affiche UNIQUEMENT sur les pages autorisées -->
+<ion-menu contentId="main-content">
   <ion-header>
     <ion-toolbar>
       <ion-title>Menu</ion-title>
@@ -8,22 +8,22 @@
 
   <ion-content>
     <ion-list>
-      <ion-item routerLink="/home">Accueil</ion-item>
+      <ion-item routerLink="/home-client">Accueil</ion-item>
       <ion-item routerLink="/products">Produits</ion-item>
       <ion-item routerLink="/favorites">Favoris</ion-item>
-
-      <!-- 🔥 Déconnexion si l'utilisateur est connecté -->
-      <ng-container *ngIf="isUserAuthenticated()">
-        <ion-item (click)="logout()">Déconnexion</ion-item>
-      </ng-container>
+      <ion-item routerLink="/cart">Panier</ion-item>
+      <ion-item routerLink="/orders">Commandes</ion-item>
+      <ion-item (click)="logout()">Déconnexion</ion-item>
     </ion-list>
   </ion-content>
 </ion-menu>
 
+<!-- ✅ ROUTER OUTLET -->
+
 <ion-router-outlet id="main-content"></ion-router-outlet>
 
-<!-- ✅ BARRE DE RECHERCHE - S'affiche uniquement si l'utilisateur est connecté -->
-<ion-header *ngIf="isUserAuthenticated()">
+<!-- ✅ header et BARRE DE RECHERCHE : S'affiche uniquement sur les pages autorisées -->
+<ion-header *ngIf="!isLoginPage">
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
@@ -42,28 +42,46 @@
 </ion-header>
 
 <!-- ✅ FOOTER - S'affiche uniquement si l'utilisateur est connecté -->
-<ion-footer *ngIf="isUserAuthenticated()" class="footer-fixed">
-  <ion-toolbar>
-    <ion-tab-bar slot="bottom">
-      <ion-tab-button routerLink="/favorites">
-        <i class="bi bi-heart icon-footer"></i>
-        <ion-label>Favoris</ion-label>
-      </ion-tab-button>
+<ion-footer  class="footer-fixed" *ngIf="!isLoginPage">
+    <ion-toolbar>
+      <ion-grid >
+        <ion-row class="ion-justify-content-around">
+           <!-- Accueil -->
+        <ion-col>
+          <ion-button fill="clear" routerLink="/home-client ">
+            <ion-icon name="home-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
 
-      <ion-tab-button routerLink="/cart">
-        <i class="bi bi-cart icon-footer"></i>
-        <ion-label>Panier</ion-label>
-      </ion-tab-button>
+        <!-- Catégories -->
+        <ion-col>
+          <ion-button fill="clear" routerLink="/categories">
+            <ion-icon name="grid-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
 
-      <ion-tab-button routerLink="/orders">
-        <i class="bi bi-receipt icon-footer"></i>
-        <ion-label>Commandes</ion-label>
-      </ion-tab-button>
+        <!-- Favoris -->
+        <ion-col>
+          <ion-button fill="clear" routerLink="/favorites">
+            <ion-icon name="heart-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
 
-      <ion-tab-button routerLink="/profile">
-        <i class="bi bi-person-circle icon-footer"></i>
-        <ion-label>Profil</ion-label>
-      </ion-tab-button>
-    </ion-tab-bar>
-  </ion-toolbar>
-</ion-footer>
+        <!-- Panier -->
+        <ion-col>
+          <ion-button fill="clear" routerLink="/cart">
+            <ion-icon name="cart-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+
+        <!-- Profil -->
+        <ion-col>
+          <ion-button fill="clear" routerLink="/profile">
+            <ion-icon name="person-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-toolbar>
+  </ion-footer>
+  

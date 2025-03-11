@@ -1,0 +1,42 @@
+/* Style personnalisé pour le bouton de connexion */
+ion-button.btnC {
+  --background: #63a50a;
+  --color: white;
+}
+
+/* Style de la page de connexion */
+ion-content {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+ // background: url('assets/logo.png') no-repeat center center/cover;
+}
+
+/* Style de la carte contenant le formulaire */
+ion-card {
+  max-width: 600px;
+  padding: 50px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+/* Positionnement des éléments relatifs */
+.position-relative {
+  position: relative;
+}
+.text-center {
+  display: flex;
+  flex-direction: column; /* Empile les éléments verticalement */
+  align-items: center; /* Centre horizontalement */
+  justify-content: center; /* Centre verticalement */
+  margin-bottom: 20px; /* Espacement sous l'icône */
+}
+
+.icon-title {
+  font-size: 4rem; /* Ajuste la taille de l'icône */
+  color: #4c2b17; /* Personnalise la couleur */
+}

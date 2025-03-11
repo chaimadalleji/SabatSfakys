@@ -5,7 +5,11 @@ import { IonicRouteStrategy, provideIonicAngular } from '@ionic/angular/standalo
 import { routes } from './app/app.routes';
 import { AppComponent } from './app/app.component';
 import { Storage } from '@ionic/storage-angular';
-import { AuthService } from './app/services/auth.service'; // ✅ Import du service d'auth
+import { provideHttpClient } from '@angular/common/http';
+
+// ✅ Importations nécessaires pour Google Auth
+import { SocialAuthServiceConfig, SocialAuthService } from '@abacritt/angularx-social-login';
+import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
 
 // ✅ Ajouter Ionicons dynamiquement dans le <head> du document
 const link = document.createElement('link');
@@ -15,10 +19,25 @@ document.head.appendChild(link);
 
 bootstrapApplication(AppComponent, {
   providers: [
+    provideHttpClient(), 
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     provideIonicAngular(),
     provideRouter(routes, withPreloading(PreloadAllModules)),
     Storage,
-    AuthService
+
+    // ✅ Ajout du provider pour Google Auth (sans modifier ton code)
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider('VOTRE_GOOGLE_CLIENT_ID') // 🔥 Remplace par ton ID Client Google OAuth
+          }
+        ]
+      } as SocialAuthServiceConfig
+    },
+    SocialAuthService
   ],
 });

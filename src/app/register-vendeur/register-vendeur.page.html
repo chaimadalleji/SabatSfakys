@@ -1,0 +1,138 @@
+<ion-content class="regis-container">
+  <div class="header">
+    <ion-button fill="clear" (click)="goBack()">
+      <ion-icon name="arrow-back"></ion-icon> Retour
+    </ion-button>
+  </div>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-icon name="storefront" class="icon-large"></ion-icon>
+      <ion-card-title>Inscription</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <form *ngIf="!isSuccessful" (ngSubmit)="onSubmit()">
+        
+        <!-- Nom -->
+        <ion-item>
+          <ion-label position="floating">Nom</ion-label>
+          <ion-input [(ngModel)]="form.username" name="username" required></ion-input>
+        </ion-item>
+
+        <!-- Email -->
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" [(ngModel)]="form.email" name="email" required></ion-input>
+        </ion-item>
+
+        <!-- Adresse -->
+        <ion-item>
+          <ion-label position="floating">Adresse</ion-label>
+          <ion-input [(ngModel)]="form.adresse" name="adresse" required></ion-input>
+        </ion-item>
+
+        <!-- Numéro d'identification -->
+        <ion-item>
+          <ion-label position="floating">Numéro Identification</ion-label>
+          <ion-input [(ngModel)]="form.numeroIdentificationEntreprise" name="numCin" required></ion-input>
+        </ion-item>
+
+        <!-- Téléphone -->
+        <ion-item>
+          <ion-label position="floating">Téléphone</ion-label>
+          <ion-input type="tel" [(ngModel)]="form.telephone" name="telephone" required></ion-input>
+        </ion-item>
+
+        <!-- Logo -->
+        <div class="photo-select">
+          <div *ngFor="let option of allPhoto" class="photo-option">
+            <input type="radio" [id]="option.id" [value]="option.id" name="logo" [(ngModel)]="form.logo.id">
+            <label [for]="option.id">
+              <img [src]="'http://localhost:8080/uploads/' + option.name" alt="{{option.name}}" class="societe-logo"/>
+            </label>
+          </div>
+        </div>
+        <!-- <ion-list class="photo-select">
+          <ion-item *ngFor="let option of allPhoto" class="photo-option">
+            <ion-radio-group [(ngModel)]="form.logo.id">
+              <ion-item>
+                <ion-radio [value]="option.id"></ion-radio>
+                <ion-label>
+                  <img [src]="'http://localhost:8080/uploads/' + option.name" alt="{{option.name}}" class="societe-logo"/>
+                </ion-label>
+              </ion-item>
+            </ion-radio-group>
+          </ion-item>
+        </ion-list> -->
+        
+        <!-- Mot de passe -->
+        <ion-item>
+          <ion-label position="floating">Mot de passe</ion-label>
+          <ion-input type="password" [(ngModel)]="form.password" name="password" required></ion-input>
+        </ion-item>
+
+        <!-- Sélections -->
+        <ion-item>
+          <ion-label>Matériaux utilisés</ion-label>
+          <ion-select [(ngModel)]="form.materiauxUtilises" name="materiauxUtilises" required>
+            <ion-select-option *ngFor="let materiau of materiauxOptions" [value]="materiau">{{ materiau }}</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Méthodes de production</ion-label>
+          <ion-select [(ngModel)]="form.methodesProduction" name="methodesProduction" required>
+            <ion-select-option *ngFor="let methode of methodesProductionOptions" [value]="methode">{{ methode }}</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Programme de recyclage</ion-label>
+          <ion-select [(ngModel)]="form.programmeRecyclage" name="programmeRecyclage" required>
+            <ion-select-option *ngFor="let recyclage of programmeRecyclageOptions" [value]="recyclage">{{ recyclage }}</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Transport & Logistique</ion-label>
+          <ion-select [(ngModel)]="form.transportLogistiqueVerte" name="transportLogistiqueVerte" required>
+            <ion-select-option *ngFor="let transport of transportLogistiqueOptions" [value]="transport">{{ transport }}</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Initiatives Sociales</ion-label>
+          <ion-select [(ngModel)]="form.initiativesSociales" name="initiativesSociales" required>
+            <ion-select-option *ngFor="let initiative of initiativesSocialesOptions" [value]="initiative">{{ initiative }}</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <!-- Score Écologique -->
+        <ion-item>
+          <ion-label position="floating">Score Écologique</ion-label>
+          <ion-input type="number" min="0" step="0.1" [(ngModel)]="form.scoreEcologique" name="scoreEcologique" required></ion-input>
+        </ion-item>
+
+         <!-- ✅ Bouton d'inscription -->
+         <div class="text-center">
+          <ion-button expand="block" type="submit" class="btnC">S'inscrire</ion-button>
+        </div>
+      </form>
+
+      <p class="text-center">
+        Déjà un compte ? <a href="/login-vendeur">Connectez-vous ici</a>
+      </p>
+
+      <ion-button fill="outline" expand="block" color="danger" (click)="signInWithGoogle()">
+        <ion-icon name="logo-google"></ion-icon> Google
+      </ion-button>
+      <ion-button fill="outline" expand="block" color="primary" (click)="signInWithFacebook()">
+        <ion-icon name="logo-facebook"></ion-icon> Facebook
+      </ion-button>
+      <ion-button fill="outline" expand="block" color="dark" (click)="signInWithGithub()">
+        <ion-icon name="logo-github"></ion-icon> GitHub
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

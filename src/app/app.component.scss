@@ -1,5 +1,8 @@
+ion-content {
+  padding-top: 100px; /* Ajoute un espace en bas pour éviter que le contenu soit caché par le footer */
+}
 ion-toolbar {
-    background-color: white !important; /* Fond blanc */
+    background-color: #63a50a !important; /* Fond blanc */
     color: #63a50a !important; /* Texte vert */
     border-bottom: 2px solid #63a50a; /* Ajoute une bordure verte pour démarquer le header */
   }
@@ -20,6 +23,7 @@ ion-toolbar {
     height: 40px;
     margin-left: 10px;
   }
+
   .footer-fixed {
     position: fixed;
     bottom: 0;
@@ -27,7 +31,11 @@ ion-toolbar {
     z-index: 1000; /* S'assure que le footer est toujours visible */
   }
   
-  ion-content {
-    padding-bottom: 60px; /* Ajoute un espace en bas pour éviter que le contenu soit caché par le footer */
+  .logout-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
   }
   
+  
+ 

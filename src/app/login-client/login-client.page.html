@@ -1,0 +1,65 @@
+
+
+<ion-content class="ion-padding" style="background: url('assets/logo.png') no-repeat center center/cover;">
+  <ion-card class="mx-auto">
+
+
+<!-- ✅ Bouton Retour -->
+<ion-button fill="clear" class="back-button" (click)="goBack()">
+  <ion-icon name="arrow-back-outline"></ion-icon> Retour
+</ion-button>
+    
+
+
+    <ion-card-header class="text-center">
+      <ion-icon name="person-circle-outline" style="font-size: 2rem; margin-bottom: 10px;"></ion-icon>
+      <h3>Se Connecter</h3>
+    </ion-card-header>
+
+    <ion-card-content>
+      <form (ngSubmit)="onSubmit()">
+        <ion-item>
+          <ion-label position="floating">Nom</ion-label>
+          <ion-input 
+            type="text" 
+            [(ngModel)]="form.username" 
+            name="username" 
+            placeholder="Nom" 
+            required>
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Mot de passe</ion-label>
+          <ion-input 
+            type="password" 
+            [(ngModel)]="form.password" 
+            name="motDePasse" 
+            placeholder="Mot de passe" 
+            required>
+          </ion-input>
+        </ion-item>
+
+        <ion-button expand="full" type="submit" [disabled]="!form.username || !form.password">
+          Se connecter
+        </ion-button>
+      </form>
+
+      <p class="text-center mt-3">
+        Vous n'avez pas de compte ? <a href="/register-client" class="text-primary">Créez-en un ici</a>
+      </p>
+
+      <ion-button expand="full" color="danger" (click)="signInWithGoogle()">
+        <ion-icon name="logo-google"></ion-icon> Se connecter avec Google
+      </ion-button>
+      <ion-button expand="full" color="primary" (click)="signInWithFacebook()">
+        <ion-icon name="logo-facebook"></ion-icon> Se connecter avec Facebook
+      </ion-button>
+      <ion-button expand="full" color="dark" (click)="signInWithGithub()">
+        <ion-icon name="logo-github"></ion-icon> Se connecter avec GitHub
+      </ion-button>
+
+      <ion-alert *ngIf="errorMessage" color="danger" message="{{ errorMessage }}" />
+    </ion-card-content>
+  </ion-card>
+</ion-content>

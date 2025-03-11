@@ -1,0 +1,24 @@
+.regis-container {
+    //--background: url('assets/logo.png') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .header ion-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  
+  .icon-large {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .btnC {
+    background-color: #63a50a;
+  }
+  

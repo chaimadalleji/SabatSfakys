@@ -6,11 +6,16 @@
   <h2>Bienvenue sur SabatSfakys</h2>
   <p>Choisissez le type de compte :</p>
 
-  <ion-button expand="full" color="primary" (click)="selectAccount('client')">
+  <ion-button [routerLink]="['/login-client']" expand="full" color="primary" (click)="selectAccount('client')">
     👤 Compte Client
   </ion-button>
 
-  <ion-button expand="full" color="secondary" (click)="selectAccount('vendeur')">
+  <ion-button [routerLink]="['/login-vendeur']" expand="full" color="secondary" (click)="selectAccount('vendeur')">
     🏪 Compte Vendeur
+  </ion-button>
+
+  <!-- Nouveau bouton "Upload Photo" ajouté -->
+  <ion-button [routerLink]="['/create-photo']" expand="full" color="tertiary" style="margin-top: 20px;">
+    📷 Upload Photo
   </ion-button>
 </ion-content>

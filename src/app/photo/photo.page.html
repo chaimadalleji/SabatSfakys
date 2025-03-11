@@ -1,0 +1,37 @@
+<ion-card class="card-shadow">
+  <ion-card-content>
+    <div class="ion-text-center">
+      <ion-button expand="block" color="primary" [routerLink]="'/create-photo'">
+        <ion-icon slot="start" name="add-circle-outline"></ion-icon>
+        NEW IMAGE
+      </ion-button>
+    </div>
+    
+
+    <ion-grid class="custom-table">
+      <!-- En-tête du tableau -->
+      <ion-row class="table-header">
+        <ion-col size="3">NAME</ion-col>
+        <ion-col size="3">URL</ion-col>
+        <ion-col size="3">IMAGE</ion-col>
+        <ion-col size="3">ACTIONS</ion-col>
+      </ion-row>
+
+      <!-- Contenu dynamique -->
+      <ion-row *ngFor="let file of fileInfos | async" class="table-row">
+        <ion-col size="3">{{ file.name }}</ion-col>
+        <ion-col size="3">{{ file.url }}</ion-col>
+        <ion-col size="3">
+          <ion-img *ngIf="file.url.endsWith('.jpg') || file.url.endsWith('.png') || file.url.endsWith('.jpeg') || file.url.endsWith('.heic')"
+            [src]="file.url" class="img-thumbnail">
+          </ion-img>
+        </ion-col>
+        <ion-col size="3">
+          <ion-button color="danger" size="small" (click)="openDeleteModal(file.name)">
+            <ion-icon name="trash-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-content>
+</ion-card>

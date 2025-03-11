@@ -1,38 +1,58 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
     <ion-title>Catégories</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <h2>Catégories de Produits</h2>
+<ion-content class="page-content-padding">
+  <ion-segment [(ngModel)]="selectedCategory">
+    <ion-segment-button value="shoes">
+      <ion-label>Chaussures</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="handbags">
+      <ion-label>Sacs à main</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="backpacks">
+      <ion-label>Sacs à dos</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="special-shoes">
+      <ion-label>Spécial</ion-label>
+    </ion-segment-button>
+  </ion-segment>
 
-  <!-- Mettre en avant la catégorie spéciale -->
-  <ion-card button (click)="openCategory(specialCategory.name)" class="special-category">
-    <ion-card-header>
-      <ion-icon [name]="specialCategory.icon" size="large"></ion-icon>
-      <ion-card-title>{{ specialCategory.name }}</ion-card-title>
-    </ion-card-header>
-  </ion-card>
+  <div *ngIf="selectedCategory === 'shoes'">
+    <h2>Chaussures</h2>
+    <ion-list>
+      <ion-item>👞 Homme</ion-item>
+      <ion-item>👠 Femme</ion-item>
+      <ion-item>👟 Enfant</ion-item>
+    </ion-list>
+  </div>
 
-  <!-- Catégories avec menu déroulant -->
-  <ion-accordion-group>
-    <ion-accordion *ngFor="let category of categories" [value]="category.name">
-      <ion-item slot="header">
-        <ion-icon [name]="category.icon" slot="start"></ion-icon>
-        <ion-label>{{ category.name }}</ion-label>
-      </ion-item>
-      <div slot="content">
-        <ion-list>
-          <ion-item button *ngFor="let subcategory of category.subcategories" 
-                    (click)="openCategory(category.name, subcategory)">
-            {{ subcategory }}
-          </ion-item>
-        </ion-list>
-      </div>
-    </ion-accordion>
-  </ion-accordion-group>
+  <div *ngIf="selectedCategory === 'handbags'">
+    <h2>Sacs à main</h2>
+    <ion-list>
+      <ion-item>👜 Homme</ion-item>
+      <ion-item>👜 Femme</ion-item>
+      <ion-item>👜 Enfant</ion-item>
+    </ion-list>
+  </div>
+
+  <div *ngIf="selectedCategory === 'backpacks'">
+    <h2>Sacs à dos</h2>
+    <ion-list>
+      <ion-item>🎒 Homme</ion-item>
+      <ion-item>🎒 Femme</ion-item>
+      <ion-item>🎒 Enfant</ion-item>
+    </ion-list>
+  </div>
+
+  <div *ngIf="selectedCategory === 'special-shoes'">
+    <h2>Chaussures pour besoins spécifiques</h2>
+    <ion-list>
+      <ion-item>🦽 Homme</ion-item>
+      <ion-item>🦽 Femme</ion-item>
+      <ion-item>🦽 Enfant</ion-item>
+    </ion-list>
+  </div>
 </ion-content>

@@ -1,0 +1,60 @@
+<ion-content class="login-container">
+  <div class="card">
+    <div class="card-body">
+
+      <!-- ✅ Bouton Retour -->
+      <ion-button fill="clear" class="back-button" (click)="goBack()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+        Retour
+      </ion-button>
+
+      <!-- ✅ Titre avec icône -->
+      <div class="text-center">
+        <ion-icon name="storefront-outline" class="icon-title"></ion-icon>
+        <h3>Se Connecter</h3>
+      </div>
+
+      <!-- ✅ Formulaire -->
+      <form (ngSubmit)="onSubmit()">
+        
+        <!-- Nom d'utilisateur -->
+        <ion-item>
+          <ion-label position="floating">Nom</ion-label>
+          <ion-input [(ngModel)]="form.username" name="username" type="text" required></ion-input>
+        </ion-item>
+
+        <!-- Mot de passe -->
+        <ion-item>
+          <ion-label position="floating">Mot de passe</ion-label>
+          <ion-input [(ngModel)]="form.password" name="password" type="password" required></ion-input>
+        </ion-item>
+
+        <!-- ✅ Bouton de connexion -->
+        <ion-button expand="full" type="submit" class="btn-primary">Se connecter</ion-button>
+      </form>
+
+      <!-- ✅ Lien pour créer un compte -->
+      <p class="text-center">
+        Vous n'avez pas de compte ?
+        <a routerLink="/register-vendeur" class="text-primary">Créez-en un ici</a>
+      </p>
+
+      <!-- ✅ Connexion avec les réseaux sociaux -->
+      <div class="social-login">
+        <ion-button fill="outline" expand="full" class="google" (click)="signInWithGoogle()">
+          <ion-icon name="logo-google"></ion-icon> Se connecter avec Google
+        </ion-button>
+        <ion-button fill="outline" expand="full" class="facebook" (click)="signInWithFacebook()">
+          <ion-icon name="logo-facebook"></ion-icon> Se connecter avec Facebook
+        </ion-button>
+        <ion-button fill="outline" expand="full" class="github" (click)="signInWithGithub()">
+          <ion-icon name="logo-github"></ion-icon> Se connecter avec GitHub
+        </ion-button>
+      </div>
+
+      <!-- ✅ Affichage des erreurs -->
+      <ion-alert *ngIf="errorMessage" header="Erreur" [message]="errorMessage" buttons="OK"></ion-alert>
+
+    </div>
+  </div>
+</ion-content>

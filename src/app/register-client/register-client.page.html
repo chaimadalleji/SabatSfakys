@@ -1,0 +1,96 @@
+<ion-content class="ion-padding regis-container">
+  <div class="card-container">
+    
+    <!-- ✅ Bouton Retour -->
+    <ion-button fill="clear" class="back-button" (click)="goBack()">
+      <ion-icon slot="start" name="arrow-back-outline"></ion-icon> Retour
+    </ion-button>
+
+    <!-- ✅ Titre avec icône -->
+    <div class="text-center">
+      <ion-icon name="person-circle-outline" class="title-icon"></ion-icon>
+      <h3>Inscription</h3>
+    </div>
+
+    <!-- ✅ Formulaire -->
+    <form *ngIf="!isSuccessful" (ngSubmit)="onSubmit()">
+      
+      <!-- Nom d'utilisateur -->
+      <ion-item>
+        <ion-label position="floating">Nom</ion-label>
+        <ion-icon slot="start" name="person-outline"></ion-icon>
+        <ion-input [(ngModel)]="form.username" name="username" type="text" required></ion-input>
+      </ion-item>
+
+      <!-- Email -->
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-icon slot="start" name="mail-outline"></ion-icon>
+        <ion-input [(ngModel)]="form.email" name="email" type="email" required></ion-input>
+      </ion-item>
+
+      <!-- Adresse -->
+      <ion-item>
+        <ion-label position="floating">Adresse</ion-label>
+        <ion-icon slot="start" name="location-outline"></ion-icon>
+        <ion-input [(ngModel)]="form.adresse" name="adresse" type="text" required></ion-input>
+      </ion-item>
+
+      <!-- Téléphone & Sexe -->
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6">
+            <ion-item>
+              <ion-label position="floating">Téléphone</ion-label>
+              <ion-icon slot="start" name="call-outline"></ion-icon>
+              <ion-input [(ngModel)]="form.telephone" name="telephone" type="text" required></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col size="6">
+            <ion-item>
+              <ion-label>Sexe</ion-label>
+              <ion-icon slot="start" name="male-female-outline"></ion-icon>
+              <ion-select [(ngModel)]="form.sexe" name="sexe" required>
+                <ion-select-option value="HOMME">Homme</ion-select-option>
+                <ion-select-option value="FEMME">Femme</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <!-- Mot de passe -->
+      <ion-item>
+        <ion-label position="floating">Mot de passe</ion-label>
+        <ion-icon slot="start" name="lock-closed-outline"></ion-icon>
+        <ion-input [(ngModel)]="form.password" name="password" type="password" required></ion-input>
+      </ion-item>
+
+      <!-- ✅ Bouton d'inscription -->
+      <ion-button expand="block" type="submit" color="primary">S'inscrire</ion-button>
+    </form>
+
+    <!-- ✅ Bouton d'inscription Google -->
+    <div class="google-signin">
+      <asl-google-signin-button  
+        type="standard" 
+        shape="pill"
+        theme="filled_blue"
+        text="signin_with"
+        size="large"
+        logo_alignment="left"
+        >
+      </asl-google-signin-button>
+    </div>
+
+    <!-- ✅ Lien pour se connecter -->
+    <p class="text-center">
+      Vous avez déjà un compte ? <a routerLink="/login-client" class="text-primary">Connectez-vous ici</a>
+    </p>
+
+    <!-- ✅ Alertes d'erreur et succès -->
+    <ion-alert *ngIf="errorMessage" message="{{ errorMessage }}" color="danger"></ion-alert>
+    <ion-alert *ngIf="isSuccessful" message="Inscription réussie ! Bienvenue 🎉" color="success"></ion-alert>
+
+  </div>
+</ion-content>

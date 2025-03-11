@@ -1,0 +1,41 @@
+<ion-content>
+  <div class="ion-padding">
+    <h5 class="ion-text-center mt-5">CREATE A NEW IMAGE</h5>
+    <ion-item-divider></ion-item-divider>
+
+    <div class="ion-row">
+      <div class="ion-col-8">
+        <ion-button expand="block" color="primary" (click)="fileInput.click()">
+          Choose Files
+        </ion-button>
+        <input type="file" #fileInput (change)="selectFiles($event)" multiple hidden />
+      </div>
+    </div>
+
+    <div *ngIf="message" class="ion-alert">{{ message }}</div>
+
+    <div class="ion-row ion-padding-top">
+      <ion-button expand="block" color="primary" [disabled]="!selectedFiles" (click)="upload()">Upload Image</ion-button>
+    </div>
+
+    <ion-card class="my-3">
+      <ion-card-header>
+        <ion-card-title>Upload Progress</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <div *ngFor="let progressInfo of progressInfos">
+          <ion-item>
+            <ion-label>{{ progressInfo.fileName }}</ion-label>
+            <ion-progress-bar [value]="progressInfo.value / 100"></ion-progress-bar>
+            <ion-text>{{ progressInfo.value }}%</ion-text>
+          </ion-item>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-button expand="block" color="light" (click)="cancel()" class="ion-margin-top">
+      <ion-icon slot="start" name="arrow-back"></ion-icon> BACK
+    </ion-button>
+    
+  </div>
+</ion-content>

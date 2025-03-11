@@ -11,4 +11,6 @@
   ion-accordion {
     border-bottom: 1px solid #ddd;
   }
-  
+  ion-content {
+    --padding-top: 100px !important; 
+  }

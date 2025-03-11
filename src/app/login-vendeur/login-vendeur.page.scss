@@ -1,0 +1,65 @@
+.login-container {
+   // --background: url('assets/logo.png') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+  }
+  
+  .card {
+    max-width: 600px;
+    padding: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+  }
+  
+  .back-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #4c2b17;
+  }
+  
+  .text-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .icon-title {
+    font-size: 3rem;
+    color: #4c2b17;
+  }
+  
+  .btn-primary {
+    margin-top: 20px;
+    background-color: #63a50a;
+  }
+  
+  .social-login {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .google {
+    --border-color: #db4437;
+    --color: #db4437;
+  }
+  
+  .facebook {
+    --border-color: #3b5998;
+    --color: #3b5998;
+  }
+  
+  .github {
+    --border-color: #000;
+    --color: #000;
+  }
+  

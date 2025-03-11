@@ -1,18 +1,28 @@
 .welcome-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    text-align: center;
-  }
-  
-  .logo-container {
-    margin-bottom: 20px;
-  }
-  
-  .logo {
-    width: 150px;
-    height: auto;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* S'assure que le contenu est bien centré */
+  text-align: center;
+  padding: 20px;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+}
+
+ion-button {
+  width: 90%;
+  max-width: 400px;
+  margin: 10px auto;
+}
